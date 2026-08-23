@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Старт</title>
+  <script src="https://st.max.ru/js/max-web-app.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #555;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <p>Открываем меню…</p>
+  <script>
+    (function () {
+      function finish() {
+        var wa = window.WebApp;
+        if (!wa) return;
+        try {
+          if (typeof wa.ready === 'function') wa.ready();
+          if (typeof wa.sendData === 'function') {
+            wa.sendData('start');
+            return;
+          }
+          if (typeof wa.close === 'function') wa.close();
+        } catch (e) {
+          console.error(e);
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', finish);
+      } else {
+        finish();
+      }
+    })();
+  </script>
+</body>
+</html>

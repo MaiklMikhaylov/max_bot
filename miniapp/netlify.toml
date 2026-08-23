@@ -1,0 +1,8 @@
+# Для деплоя через Netlify CLI: netlify deploy --prod --dir=.
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "ALLOWALL"

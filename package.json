@@ -1,0 +1,26 @@
+{
+  "name": "max-innobot",
+  "version": "1.0.0",
+  "description": "MAX bot for Innopolis Lyceum: attendance, repair tickets, admin",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/bot.js",
+    "dev": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 tsx src/bot.ts"
+  },
+  "dependencies": {
+    "@maxhub/max-bot-api": "^0.2.0",
+    "better-sqlite3": "^13.0.3",
+    "docxtemplater": "^3.65.2",
+    "dotenv": "^16.4.7",
+    "exceljs": "^4.4.0",
+    "pizzip": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^22.13.10",
+    "cross-env": "^10.1.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}

@@ -1,0 +1,35 @@
+# Публикует папку miniapp/ на GitHub Pages (кнопка «Старт» в MAX).
+# После push: Settings → Pages → Source: GitHub Actions.
+name: Deploy miniapp to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'miniapp/**'
+      - '.github/workflows/deploy-miniapp.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: miniapp
+      - id: deployment
+        uses: actions/deploy-pages@v4
