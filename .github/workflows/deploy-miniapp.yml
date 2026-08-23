@@ -1,5 +1,6 @@
-# Публикует папку miniapp/ на GitHub Pages (кнопка «Старт» в MAX).
-# После push: Settings → Pages → Source: GitHub Actions.
+# Публикует miniapp/ через GitHub Actions.
+# Сначала включите Pages: Settings → Pages → Source: GitHub Actions.
+# Проще без Actions: Settings → Pages → Branch main → Folder /docs (файл docs/index.html).
 name: Deploy miniapp to GitHub Pages
 
 on:
